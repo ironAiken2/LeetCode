@@ -6,18 +6,8 @@
 #         self.right = right
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-        if not root:
-            return 0
-        
-        cnt1 = 1
-        cnt2 = 1
-        
-        if root.left:
-            cnt1 += Solution().maxDepth(root.left)
-        if root.right:
-            cnt2 += Solution().maxDepth(root.right)
-            
-        if cnt1 > cnt2:
-            return cnt1
-        else:
-            return cnt2
+        def dfs(root, depth):
+            if not root: return depth
+            return max(dfs(root.left, depth + 1), dfs(root.right, depth + 1))
+                       
+        return dfs(root, 0)
