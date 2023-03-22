@@ -1,9 +1,13 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        # Initialize the unique number...
-        uniqNum = 0;
-        # TRaverse all elements through the loop...
-        for idx in nums:
-            # Concept of XOR...
-            uniqNum ^= idx;
-        return uniqNum; 
+        nums.sort()
+        
+        
+        for i in range(0, len(nums), 2):
+            try:
+                if nums[i] != nums[i+1]:
+                    return nums[i]
+            except:
+                return nums[i]
+            
+        return nums[i]
