@@ -8,6 +8,7 @@ class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         if not root:
             return root
+        
         if root.left:
             root.left = self.invertTree(root.left)
         if root.right:
