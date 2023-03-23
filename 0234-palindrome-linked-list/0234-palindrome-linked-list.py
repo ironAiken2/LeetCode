@@ -13,11 +13,9 @@ class Solution:
 
         List1 = List[:len(List)//2]
         List2 = List[len(List)//2:]
-                
-        if len(List) % 2 != 0:
-            del(List2[0])
-            
-        if List1 == List2[::-1]:
-            return True
+        
+        if len(List) % 2 == 0:
+            return True if List1 == List2[::-1] else False
         else:
-            return False
+            return True if List1 == List2[:0:-1] else False
+        
