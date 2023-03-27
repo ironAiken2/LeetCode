@@ -36,3 +36,5 @@ class Solution:
             ans = ans.next
             
         return pointer.next
+    
+    
