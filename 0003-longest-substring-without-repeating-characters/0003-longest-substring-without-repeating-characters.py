@@ -1,21 +1,13 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        dic = {}
-        for data in Counter(s):
-            dic[data] = 0
+        data = set()
+        m, start = 0, 0
         
-        start = 0
-        end = 0
-        ans = 0
-        
-        while end < len(s):
-            if dic[s[end]] == 0:
-                dic[s[end]] += 1
-                end += 1
-            else:
-                dic[s[start]] -= 1
+        for i, num in enumerate(s):
+            while num in data:
+                data.remove(s[start])
                 start += 1
-                
-            ans = max(ans, end - start)
-                
-        return ans
+            data.add(s[i])
+            m = max(m, i-start+1)
+            
+        return m
