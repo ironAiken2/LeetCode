@@ -22,7 +22,7 @@ class Solution:
             
         ans = int(ans) * flag
         
-        if ans < -(2**31) or ans > 2**31 - 1:
+        if ans < -2147483648 or ans > 2147483647:
             return 0
         else:
             return ans
